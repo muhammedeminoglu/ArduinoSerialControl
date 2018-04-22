@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OgrenciKartiOkumaYazma", "OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma.csproj", "{B8E07C4F-7A3A-4862-A3D8-E151B5A8818F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8E07C4F-7A3A-4862-A3D8-E151B5A8818F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E07C4F-7A3A-4862-A3D8-E151B5A8818F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E07C4F-7A3A-4862-A3D8-E151B5A8818F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E07C4F-7A3A-4862-A3D8-E151B5A8818F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CB8D510-83B1-411B-B80B-5846D4BEBDF0}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\OgrenciKartiOkumaYazma.exe.config
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\OgrenciKartiOkumaYazma.exe
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\OgrenciKartiOkumaYazma.pdb
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.csprojResolveAssemblyReference.cache
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.Form1.resources
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.Properties.Resources.resources
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.csproj.GenerateResource.Cache
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.csproj.CoreCompileInputs.cache
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.exe
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.pdb
