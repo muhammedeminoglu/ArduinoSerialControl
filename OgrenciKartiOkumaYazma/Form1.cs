@@ -159,14 +159,14 @@ namespace OgrenciKartiOkumaYazma
             if (ilkMi == 0)
             {
                 if (serialPort1.IsOpen)
-                    serialPort1.Write("0#");
+                    serialPort1.Write("0                                                                                    #");
                 else
                 {
                     MessageBox.Show("Port Bağlı Değil");
                 }
             }
             if (serialPort1.IsOpen)
-                serialPort1.Write("0#");
+                serialPort1.Write("0                                                                                    #");
             else
             {
                 MessageBox.Show("Port Bağlı Değil");
@@ -198,7 +198,18 @@ namespace OgrenciKartiOkumaYazma
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            String gelen = serialPort1.ReadExisting();
+            //String gelen = serialPort1.ReadLine();
+
+            SetUidText("");
+            SetTc("");
+            SetIsim("");
+            SetSoyisim("");
+            SetOgrNo("");
+            SetBirimler("");
+
+            byte[] GelenByte = new byte[86];
+            serialPort1.Read(GelenByte, 0, 86);
+            
 
             String Uid = "";
             String Ad = "";
@@ -207,7 +218,7 @@ namespace OgrenciKartiOkumaYazma
             String TcKimlik = "";
             String Birimler = "";
 
-            try
+            /*try
             {
                 if (gelen[0] == '1' && gelen.Length > 80)
                 {
@@ -262,7 +273,63 @@ namespace OgrenciKartiOkumaYazma
             catch
             {
 
+            }*/
+
+            if (Convert.ToChar(Convert.ToInt32(GelenByte[85])) == '#' && Convert.ToChar(Convert.ToInt32(GelenByte[0])) == '0')
+            {
+                for (int i = 1; i < 5; i++)
+                {
+                    if (i == 1)
+                        Uid = Uid + "" + Convert.ToString(Convert.ToInt32(GelenByte[i]));
+                    else
+                        Uid = Uid + " " + Convert.ToString(Convert.ToInt32(GelenByte[i]));
+                }
+                
+                for (int i = 5; i < 21; i++)
+                {
+                    if (GelenByte[i] != 32)
+                        TcKimlik = TcKimlik + Convert.ToChar(Convert.ToInt32(GelenByte[i]));
+                }
+                
+
+                for (int i = 21; i < 37; i++)
+                {
+                    if (GelenByte[i] != ' ')
+                        Ad = Ad + "" + Convert.ToChar(Convert.ToInt32(GelenByte[i]));
+                }
+                
+
+                for (int i = 37; i < 53; i++)
+                {
+                    if (GelenByte[i] != ' ')
+                        Soyad = Soyad + "" + Convert.ToChar(Convert.ToInt32(GelenByte[i])); ;
+                }
+                
+
+                for (int i = 53; i < 69; i++)
+                {
+                    if (GelenByte[i] != ' ')
+                        OgrenciNo = OgrenciNo + "" + Convert.ToChar(Convert.ToInt32(GelenByte[i])); ;
+                }
+               
+
+                for (int i = 69; i < 85; i++)
+                {
+                    if (GelenByte[i] != 32)
+                        if (i == 69)
+                            Birimler = Birimler + "" + Convert.ToString(Convert.ToInt32(GelenByte[i]));
+                        else
+                            Birimler = Birimler + "," + Convert.ToString(Convert.ToInt32(GelenByte[i]));
+                }
+
+                SetUidText(Uid);
+                SetTc(TcKimlik);
+                SetIsim(Ad);
+                SetSoyisim(Soyad);
+                SetOgrNo(OgrenciNo);
+                SetBirimler(Birimler);  
             }
+            
         }
 
         private void serialPort1_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
@@ -277,11 +344,90 @@ namespace OgrenciKartiOkumaYazma
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
-
             if (rdrHepsi.Checked)
             {
                 String[] birimler = new String[16];
+                byte[] Yazilacak = new byte[86];
+
+                Yazilacak[0] = 49;
+                Yazilacak[1] = 32;
+                Yazilacak[2] = 32;
+                Yazilacak[3] = 32;
+                Yazilacak[4] = 32;
+                Yazilacak[85] = 35;
+
+                //*********TC KİMLİK OLUŞTUR****************
+                String YeniTC = txtTc.Text;
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i >= txtTc.Text.Length)
+                        YeniTC = YeniTC + " ";;
+                }
+                
+                byte[] Tc = Encoding.ASCII.GetBytes(YeniTC);
+                for (int i = 5; i < 21; i++)
+                {
+                    Yazilacak[i] = Tc[i - 5];
+                }
+                //*******************************************
+
+                //************Ad OLUŞTUR*********************
+                String YeniAd = txtIsim.Text;
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i >= txtIsim.Text.Length)
+                        YeniAd = YeniAd + " "; ;
+                }
+
+                byte[] Ad = Encoding.ASCII.GetBytes(YeniAd);
+                for (int i = 21; i < 37; i++)
+                {
+                    Yazilacak[i] = Ad[i - 21];
+                }
+                //**********************************************
+
+                //************Soyad OLUŞTUR*********************
+                String YeniSoyad = txtSoyisim.Text;
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i >= txtSoyisim.Text.Length)
+                        YeniSoyad = YeniSoyad + " "; 
+                }
+
+                byte[] Soyad = Encoding.ASCII.GetBytes(YeniSoyad);
+                for (int i = 37; i < 53; i++)
+                {
+                    Yazilacak[i] = Soyad[i - 37];
+                }
+                //**********************************************
+
+                //************Öğrenci No OLUŞTUR*********************
+                String YeniNo = txtOgrenciNo.Text;
+                for (int i = 0; i < 16; i++)
+                {
+                    if (i >= txtOgrenciNo.Text.Length)
+                        YeniNo = YeniNo + " ";
+                }
+
+                byte[] Numara = Encoding.ASCII.GetBytes(YeniNo);
+                for (int i = 53; i < 69; i++)
+                {
+                    Yazilacak[i] = Numara[i - 53];
+                }
+
+
+                List<string> BirimlerString = txtBirimler.Text.Split(',').ToList<string>();
+                for (int i = 69; i < 85; i++)
+                {
+                    if (i - 69 < BirimlerString.Count)
+                        Yazilacak[i] = Convert.ToByte(Convert.ToInt32(BirimlerString[i - 69]));
+                    else
+                        Yazilacak[i] = 32;
+                }
+
+                serialPort1.Write(Yazilacak, 0, 86);
+
+                /*
                 List<string> BirimlerString = txtBirimler.Text.Split(',').ToList<string>();
                 int[] BirimlerSayi = new int[BirimlerString.Count];
                 byte[] BirimBuffer = new byte[16];
@@ -333,7 +479,7 @@ namespace OgrenciKartiOkumaYazma
                 txtMesaj.AppendText(GonderilecekVeri);
                 
                 GonderilecekVeri = GonderilecekVeri + '#';
-                serialPort1.Write(GonderilecekVeri); 
+                serialPort1.Write(GonderilecekVeri);*/
             }
             else if(rdrTcKimlik.Checked)
             {
