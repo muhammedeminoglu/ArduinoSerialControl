@@ -8,3 +8,8 @@ C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj
 C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.csproj.CoreCompileInputs.cache
 C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.exe
 C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\obj\Debug\OgrenciKartiOkumaYazma.pdb
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\Resources\connect.png
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\Resources\olumlu.png
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\Resources\olumsuz.png
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\Resources\write.png
+C:\Users\Muhammed\source\repos\OgrenciKartiOkumaYazma\OgrenciKartiOkumaYazma\bin\Debug\Resources\if__read_email_1249987 (1).png
